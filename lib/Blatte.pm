@@ -7,7 +7,7 @@ use vars qw($VERSION @EXPORT_OK);
 use Blatte::Ws;
 
 BEGIN {
-  $VERSION = '0.9.3';
+  $VERSION = '0.9.4';
   @EXPORT_OK = qw(Parse traverse
                   flatten
                   wrapws unwrapws wsof

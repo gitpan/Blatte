@@ -469,6 +469,7 @@ sub cond_expr {
     &consume_whitespace(\$input);
     last if ($input eq '');
     last if (substr($input, 0, 1) ne '{');
+    $input = substr($input, 1);
 
     my $test = $self->expr(\$input);
     return undef unless defined($test);
@@ -478,6 +479,7 @@ sub cond_expr {
     &consume_whitespace(\$input);
     return undef if ($input eq '');
     return undef if (substr($input, 0, 1) ne '}');
+    $input = substr($input, 1);
 
     push(@clauses, new Blatte::Syntax::CondClause($test, @actions));
   }

@@ -234,6 +234,8 @@ sub transform {
                                                $column + 4));
   $result .= sprintf("%s  [];\n", $indent);
   $result .= sprintf("%s}", $indent);
+
+  $result;
 }
 
 ############################################################
