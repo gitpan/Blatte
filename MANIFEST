@@ -20,5 +20,6 @@ t/let.t
 t/literal.t
 t/str.t
 t/sub.t
+t/syntax.t
 t/var.t
 t/ws.t

@@ -8,7 +8,7 @@ use Blatte::Ws;
 
 use vars qw($identifier_regex);
 
-$identifier_regex = qr/[A-Za-z][A-Za-z0-9_]*/;
+$identifier_regex = qr/[A-Za-z][A-Za-z0-9_]*(?![A-Za-z0-9_])/;
 
 sub new {
   my $type = shift;
@@ -174,7 +174,7 @@ sub define_var_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\define/);
+  return undef unless ($input =~ /^\\define(?![A-Za-z0-9_])/);
   $input = substr($input, 7);
 
   &consume_whitespace(\$input);
@@ -203,7 +203,7 @@ sub define_fn_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\define/);
+  return undef unless ($input =~ /^\\define(?![A-Za-z0-9_])/);
   $input = substr($input, 7);
 
   &consume_whitespace(\$input);
@@ -245,7 +245,7 @@ sub set_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\set!/);
+  return undef unless ($input =~ /^\\set!(?![A-Za-z0-9_])/);
   $input = substr($input, 5);
 
   &consume_whitespace(\$input);
@@ -274,7 +274,7 @@ sub lambda_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\lambda/);
+  return undef unless ($input =~ /^\\lambda(?![A-Za-z0-9_])/);
 
   $input = substr($input, 7);
 
@@ -349,7 +349,7 @@ sub any_let_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\(letrec|let\*?)/g);
+  return undef unless ($input =~ /^\\(letrec|let\*?)(?![A-Za-z0-9_])/g);
   my $keyword = $1;
   $input = substr($input, pos($input));
 
@@ -432,7 +432,7 @@ sub if_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\if/);
+  return undef unless ($input =~ /^\\if(?![A-Za-z0-9_])/);
   $input = substr($input, 3);
 
   my $test = $self->expr(\$input);
@@ -461,7 +461,7 @@ sub cond_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\cond/);
+  return undef unless ($input =~ /^\\cond(?![A-Za-z0-9_])/);
   $input = substr($input, 5);
 
   my @clauses;
@@ -500,7 +500,7 @@ sub while_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\while/);
+  return undef unless ($input =~ /^\\while(?![A-Za-z0-9_])/);
   $input = substr($input, 6);
 
   my $test = $self->expr(\$input);
@@ -526,7 +526,7 @@ sub and_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\and/);
+  return undef unless ($input =~ /^\\and(?![A-Za-z0-9_])/);
   $input = substr($input, 4);
 
   my @exprs = $self->exprs(\$input);
@@ -550,7 +550,7 @@ sub or_expr {
   }
 
   &consume_whitespace(\$input);
-  return undef unless ($input =~ /^\\or/);
+  return undef unless ($input =~ /^\\or(?![A-Za-z0-9_])/);
   $input = substr($input, 4);
 
   my @exprs = $self->exprs(\$input);
