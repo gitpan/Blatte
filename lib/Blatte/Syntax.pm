@@ -612,7 +612,8 @@ sub transform {
   sprintf('(%s)',
           join(sprintf("\n%s && ", $indent),
                map {
-                 &Blatte::Syntax::transform($_, $column + 4);
+                 sprintf('&Blatte::true(%s)',
+                         &Blatte::Syntax::transform($_, $column + 18));
                } $self->exprs()));
 }
 
@@ -635,7 +636,8 @@ sub transform {
   sprintf('(%s)',
           join(sprintf("\n%s || ", $indent),
                map {
-                 &Blatte::Syntax::transform($_, $column + 4);
+                 sprintf('&Blatte::true(%s)',
+                         &Blatte::Syntax::transform($_, $column + 18));
                } $self->exprs()));
 }
 

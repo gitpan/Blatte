@@ -15,6 +15,7 @@ lib/Blatte/Ws.pm
 t/BlatteTestHarness.pm
 t/arith.t
 t/array.t
+t/bool.t
 t/hash.t
 t/let.t
 t/literal.t

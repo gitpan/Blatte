@@ -651,6 +651,9 @@ Blatte::Parser - parser for Blatte syntax
 
 =head1 DESCRIPTION
 
+A parser for turning written Blatte expressions into their Perl
+equivalents or into Blatte's syntax-tree representation.
+
 =head1 METHODS
 
 =over 4
@@ -672,9 +675,9 @@ family of objects.
 
 =item $parser->eof(INPUT)
 
-Parses an end-of-file from INPUT.  Return value is 1 if no Blatte
-expressions remain in INPUT (that is, if it's empty after a call to
-consume_whitespace()), undef otherwise.
+Tests INPUT for end-of-file.  Leading whitespace is removed from INPUT
+with consume_whitespace and, if nothing remains, true is returned,
+else undef.
 
 =back
 

@@ -1,3 +1,9 @@
+2001-06-20  Bob Glickstein  <bobg@marzipan.emphatic.com>
+
+	* lib/Blatte/Syntax.pm: Fix bug with {\and ...} and {\or ...}
+		  failing to properly treat their subexpressions as Blatte
+		  booleans.
+
 2001-05-01  Bob Glickstein  <bobg@marzipan.emphatic.com>
 
 	* lib/Blatte/Parser.pm: Fix lexing bug that failed to recognize
