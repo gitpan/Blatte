@@ -511,8 +511,8 @@ Adds the given numbers.
 
 =item {\ameth OBJ METHNAME ARG ...}
 
-Calls the METHNAME method (i.e., member function) on object OBJ with
-given arguments in array context.  See also \smeth.
+Calls the METHNAME method (i.e., member function) on the Perl object OBJ (a
+blessed reference) with given arguments in array context.  See also \smeth.
 
 =item {\append LIST ...}
 
@@ -693,8 +693,8 @@ Removes the first element of LIST and returns it.
 
 =item {\smeth OBJ METHNAME ARG ...}
 
-Calls the METHNAME method (i.e., member function) on object OBJ with
-given arguments in scalar context.  See also \ameth.
+Calls the METHNAME method (i.e., member function) on the Perl object OBJ (a
+blessed reference) with given arguments in scalar context.  See also \ameth.
 
 =item {\split [\flags=cgimosx] STR REGEX [LIMIT]}
 

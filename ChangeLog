@@ -1,0 +1,5 @@
+2001-04-02  Bob Glickstein  <bobg@marzipan.emphatic.com>
+
+	* lib/Blatte/Parser.pm: Don't fail to consume a parsed
+		  quoted-string.
+

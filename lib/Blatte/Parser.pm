@@ -63,7 +63,7 @@ sub expr {
     $input = substr($input, 1);
   } elsif ($input =~ /^\\\"([^\\]+|\\[^\"])*\\\"/g) {
     my $str = substr($input, 0, pos($input));
-    my $input = substr($input, pos($input));
+    $input = substr($input, pos($input));
     $str = substr($str, 2, length($str) - 4);
     $str =~ s/\\(.)/$1/g;
     $syntax = new Blatte::Syntax::Literal($str);
@@ -127,7 +127,7 @@ sub special_form {
 
   my $input = $input_arg;
   if (ref($input)) {
-    $input = $$input;
+    $input = $$input_arg;
   }
 
   my $syntax;
